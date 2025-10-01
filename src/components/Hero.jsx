@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 // Animation variants
 const container = {
@@ -87,21 +86,32 @@ const Hero = () => {
             }}
           >
             <motion.div variants={buttonItem} whileHover="hover" whileTap="tap">
-              <Link 
-                to="/contact" 
-                className="relative px-8 py-4 bg-gradient-to-r from-nexus-gradient-start via-nexus-gradient-mid to-nexus-gradient-end text-white font-medium rounded-lg text-lg shadow-xl shadow-nexus-gradient-start/20 overflow-hidden group inline-block"
+              <button 
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="relative px-8 py-4 bg-gradient-to-r from-nexus-gradient-start via-nexus-gradient-mid to-nexus-gradient-end text-white font-medium rounded-lg text-lg shadow-xl shadow-nexus-gradient-start/20 overflow-hidden group"
               >
                 <span className="relative z-10">Book a Free Session</span>
                 <span className="absolute inset-0 bg-nexus-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </Link>
+              </button>
             </motion.div>
             <motion.div variants={buttonItem} whileHover="hover" whileTap="tap">
-              <Link 
-                to="/services" 
-                className="px-8 py-4 bg-transparent border-2 border-nexus-400 text-nexus-400 font-medium rounded-lg hover:bg-nexus-400/10 transition-colors duration-300 text-lg inline-block"
+              <button 
+                onClick={() => {
+                  const servicesSection = document.getElementById('services');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="relative px-8 py-4 bg-transparent border-2 border-nexus-400 text-white font-medium rounded-lg text-lg group overflow-hidden"
               >
-                Our Services
-              </Link>
+                <span className="relative z-10">Our Services</span>
+                <span className="absolute inset-0 bg-nexus-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </button>
             </motion.div>
           </motion.div>
         </motion.div>
