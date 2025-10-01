@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-300 border-b-2 border-cyan-400 ${scrolled ? 'bg-black/90 backdrop-blur-md py-2' : 'bg-black py-3'}`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md py-2 border-b border-nexus-400/30' : 'bg-gradient-to-b from-black/90 to-transparent py-3'}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
@@ -46,10 +46,10 @@ function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-300 hover:text-cyan-300 transition-colors duration-300 relative group text-lg font-medium"
+                className="text-gray-300 hover:text-nexus-200 transition-colors duration-300 relative group text-lg font-medium"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-nexus-400 to-nexus-300 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </div>
@@ -77,7 +77,7 @@ function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-300 hover:text-cyan-300 px-4 py-3 rounded-md text-lg font-medium transition-colors duration-300"
+                className="text-gray-300 hover:text-nexus-200 px-4 py-3 rounded-md text-lg font-medium transition-colors duration-300 hover:bg-nexus-900/30"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
