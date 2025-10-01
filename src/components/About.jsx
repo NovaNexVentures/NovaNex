@@ -59,9 +59,9 @@ const About = () => {
       }}
     >
       {/* Blurred overlay top and bottom */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-black to-transparent opacity-70 backdrop-blur-2xl"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent opacity-70 backdrop-blur-2xl"></div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black via-black/80 to-transparent backdrop-blur-sm"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent backdrop-blur-sm"></div>
       </div>
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -75,7 +75,7 @@ const About = () => {
         >
           <motion.h2 
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-nexus-400 via-nexus-300 to-nexus-500 bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-nexus-400 via-nexus-300 to-nexus-500 bg-clip-text text-transparent leading-tight pb-4"
           >
             Crafting Digital Excellence
           </motion.h2>
