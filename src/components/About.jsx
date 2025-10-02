@@ -99,32 +99,46 @@ const About = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div>
-            <h3 className="text-3xl font-bold mb-6">Our Journey</h3>
+            <h3 className="text-3xl font-bold mb-6">Our Vision</h3>
             <p className="text-gray-300 mb-6 text-lg">
-              Born from a passion for innovation, we've been at the forefront of digital transformation, 
-              that make a real impact.
+              At NovaNex, we're redefining digital innovation. Founded on the belief that technology should be both powerful and accessible, 
+              we've built a team that thrives on pushing boundaries and challenging the status quo.
             </p>
             <p className="text-gray-300 mb-8 text-lg">
-              Our team of experts combines technical excellence with creative vision to deliver solutions 
-              that not only meet but exceed expectations.
+              Our journey is driven by a commitment to excellence, where cutting-edge development meets intuitive design to create 
+              solutions that don't just meet industry standards—they set them.
             </p>
-
-          </div>
-          <div className="relative">
-            <div className="relative z-10 bg-gradient-to-br from-nexus-500/20 to-nexus-900/30 rounded-2xl p-1">
-              <div className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 h-full">
-                <div className="grid grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="aspect-square bg-gradient-to-br from-nexus-900/50 to-nexus-800/30 rounded-xl border border-nexus-800/50 flex items-center justify-center">
-                      <div className="text-4xl text-nexus-400">
-                        {['🚀', '💡', '🌐', '⚡'][item - 1]}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            <div className="space-y-4">
+              <div className="flex items-start">
+                <span className="text-nexus-400 mr-3">✓</span>
+                <span className="text-gray-300">Pioneering digital solutions since our inception</span>
+              </div>
+              <div className="flex items-start">
+                <span className="text-nexus-400 mr-3">✓</span>
+                <span className="text-gray-300">Award-winning team of industry experts</span>
+              </div>
+              <div className="flex items-start">
+                <span className="text-nexus-400 mr-3">✓</span>
+                <span className="text-gray-300">Client-focused approach with measurable results</span>
               </div>
             </div>
-            <div className="absolute -inset-4 bg-nexus-500/10 rounded-2xl blur-xl -z-10"></div>
+          </div>
+          <div className="relative group">
+            <div className="relative z-10 bg-gradient-to-br from-nexus-500/20 to-nexus-900/30 rounded-2xl overflow-hidden">
+              <div className="relative w-full h-full">
+                <img 
+                  src="/src/assets/about.png" 
+                  alt="NovaNex About" 
+                  className="w-full h-auto transition-opacity duration-500 group-hover:opacity-0"
+                />
+                <img 
+                  src="/src/assets/about-neon.png" 
+                  alt="NovaNex About Glow" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
+              </div>
+            </div>
+            <div className="absolute -inset-4 bg-nexus-500/10 rounded-2xl blur-xl -z-10 group-hover:bg-nexus-500/20 transition-colors duration-500"></div>
           </div>
         </motion.div>
 

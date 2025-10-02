@@ -4,17 +4,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Services from './components/Services';
+import Contact from './components/Contact';
 
 // Placeholder components for sections
-const Services = () => (
-  <section id="services" className="min-h-screen pt-20 bg-black text-white">
-    <div className="container mx-auto px-4 py-20">
-      <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">Our Services</h2>
-      {/* Services content will go here */}
-    </div>
-  </section>
-);
-
 const Portfolio = () => (
   <section id="portfolio" className="min-h-screen pt-20 bg-gray-900 text-white">
     <div className="container mx-auto px-4 py-20">
@@ -24,14 +17,7 @@ const Portfolio = () => (
   </section>
 );
 
-const Contact = () => (
-  <section id="contact" className="min-h-screen pt-20 bg-black text-white">
-    <div className="container mx-auto px-4 py-20">
-      <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">Get In Touch</h2>
-      {/* Contact form will go here */}
-    </div>
-  </section>
-);
+
 
 function App() {
   const { scrollYProgress } = useScroll();
