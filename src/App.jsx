@@ -7,6 +7,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
 
 
 
@@ -40,33 +41,18 @@ function App() {
         style={{ scaleX, transformOrigin: '0%' }} 
       />
       
-      <Navbar 
-        scrollToSection={scrollToSection} 
-        refs={{ homeRef, aboutRef, servicesRef, portfolioRef, contactRef }}
-      />
-      
-      {/* Main content */}
-      <main>
-        <section ref={homeRef} id="home">
-          <Hero />
-        </section>
-        
-        <section ref={aboutRef} id="about">
-          <About />
-        </section>
-        
-        <section ref={servicesRef} id="services">
-          <Services />
-        </section>
-        
-        <section ref={portfolioRef} id="portfolio">
-          <Portfolio />
-        </section>
-        
-        <section ref={contactRef} id="contact">
-          <Contact />
-        </section>
-      </main>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-900">
+        <Navbar 
+          scrollToSection={scrollToSection} 
+          refs={{ homeRef, aboutRef, servicesRef, portfolioRef, contactRef }} 
+        />
+        <div ref={homeRef}><Hero /></div>
+        <div ref={aboutRef}><About /></div>
+        <div ref={servicesRef}><Services /></div>
+        <div ref={portfolioRef} id="portfolio"><Portfolio /></div>
+        <div ref={contactRef} id="contact"><Contact /></div>
+        <Footer />
+      </div>
     </div>
   );
 }
