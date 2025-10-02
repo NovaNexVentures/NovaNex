@@ -6,16 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
-
-// Placeholder components for sections
-const Portfolio = () => (
-  <section id="portfolio" className="min-h-screen pt-20 bg-gray-900 text-white">
-    <div className="container mx-auto px-4 py-20">
-      <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">Portfolio</h2>
-      {/* Portfolio content will go here */}
-    </div>
-  </section>
-);
+import Portfolio from './components/Portfolio';
 
 
 
