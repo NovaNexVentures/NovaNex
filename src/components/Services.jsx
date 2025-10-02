@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 // Import service images
 import softwareImg from '../assets/services/software.jpg';
@@ -33,7 +34,7 @@ const ServiceCard = ({ title, description, image }) => {
   return (
     <motion.div
       variants={fadeInUp}
-      className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl hover:shadow-nexus-500/20 transition-all duration-300 hover:-translate-y-2 h-full overflow-hidden"
+      className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl hover:shadow-nexus-500/20 transition-all duration-300 hover:-translate-y-2 h-full overflow-hidden w-full"
     >
       <div className="relative h-64 overflow-hidden">
         <img 
@@ -52,6 +53,8 @@ const ServiceCard = ({ title, description, image }) => {
 };
 
 const Services = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const services = [
     {
       title: 'Software Development',
@@ -85,6 +88,7 @@ const Services = () => {
         backgroundAttachment: 'fixed',
       }}
     >
+      {/* Content will be rendered here */}
       {/* Blurred overlay top and bottom */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black via-black/80 to-transparent backdrop-blur-sm"></div>
@@ -94,8 +98,9 @@ const Services = () => {
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div 
+            ref={ref}
             initial="hidden"
-            animate="visible"
+            animate={isInView ? "visible" : "hidden"}
             variants={staggerContainer}
             className="text-center mb-20"
           >
@@ -107,17 +112,16 @@ const Services = () => {
             </motion.h2>
             <motion.p 
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
+              className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8"
             >
               Comprehensive solutions designed to transform your digital presence and drive business growth.
             </motion.p>
           </motion.div>
-
           <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto px-4"
             initial="hidden"
-            animate="visible"
+            animate={isInView ? "visible" : "hidden"}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
           >
             {services.map((service, index) => (
               <motion.div 
