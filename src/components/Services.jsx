@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
 
+// Import service images
+import softwareImg from '../assets/services/software.jpg';
+import webImg from '../assets/services/web.jpg';
+import aiImg from '../assets/services/ai.jpg';
+import virtualImg from '../assets/services/virtual.jpg';
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -23,15 +29,24 @@ const staggerContainer = {
   }
 };
 
-const ServiceCard = ({ title, description, icon }) => {
+const ServiceCard = ({ title, description, image }) => {
   return (
     <motion.div
       variants={fadeInUp}
-      className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl shadow-2xl hover:shadow-nexus-500/20 transition-all duration-300 hover:-translate-y-2 h-full"
+      className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl hover:shadow-nexus-500/20 transition-all duration-300 hover:-translate-y-2 h-full overflow-hidden"
     >
-      <div className="text-5xl mb-6 text-nexus-400">{icon}</div>
-      <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
-      <p className="text-gray-300">{description}</p>
+      <div className="relative h-64 overflow-hidden">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+      </div>
+      <div className="p-6">
+        <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
+        <p className="text-gray-300">{description}</p>
+      </div>
     </motion.div>
   );
 };
@@ -41,22 +56,22 @@ const Services = () => {
     {
       title: 'Software Development',
       description: 'Custom software solutions tailored to your business needs. From web applications to enterprise systems, we build robust and scalable software that drives growth.',
-      icon: '💻'
+      image: softwareImg
     },
     {
-      title: 'Digital Solutions',
-      description: 'Comprehensive digital transformation services including cloud solutions, digital strategy, and system integration to modernize your business operations.',
-      icon: '🌐'
+      title: 'Web Development',
+      description: 'Modern, responsive, and high-performance websites and web applications that deliver exceptional user experiences and drive business growth.',
+      image: webImg
+    },
+    {
+      title: 'AI Solutions',
+      description: 'Leverage the power of artificial intelligence to transform your business processes, gain insights, and deliver intelligent solutions.',
+      image: aiImg
     },
     {
       title: 'Virtual Tours',
       description: 'Immersive 360° virtual experiences that showcase properties, venues, and spaces with stunning clarity and interactive elements.',
-      icon: '🖼️'
-    },
-    {
-      title: 'AI-Powered Solutions',
-      description: 'Harness the power of artificial intelligence with our custom AI solutions, including machine learning models, computer vision, and natural language processing.',
-      icon: '🤖'
+      image: virtualImg
     }
   ];
 
@@ -102,7 +117,7 @@ const Services = () => {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
           >
             {services.map((service, index) => (
               <motion.div 
@@ -110,11 +125,7 @@ const Services = () => {
                 variants={fadeInUp}
                 className="h-full"
               >
-                <ServiceCard 
-                  title={service.title}
-                  description={service.description}
-                  icon={service.icon}
-                />
+                <ServiceCard {...service} />
               </motion.div>
             ))}
           </motion.div>
