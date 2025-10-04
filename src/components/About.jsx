@@ -1,5 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import about from '../assets/about.png';
+import aboutNeon from '../assets/about-neon.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -127,12 +129,12 @@ const About = () => {
             <div className="relative z-10 bg-gradient-to-br from-nexus-500/20 to-nexus-900/30 rounded-2xl overflow-hidden">
               <div className="relative w-full h-full">
                 <img 
-                  src="/src/assets/about.png" 
+                  src={about}
                   alt="NovaNex About" 
                   className="w-full h-auto transition-opacity duration-500 group-hover:opacity-0"
                 />
                 <img 
-                  src="/src/assets/about-neon.png" 
+                  src={aboutNeon}
                   alt="NovaNex About Glow" 
                   className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
