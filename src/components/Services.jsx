@@ -80,6 +80,7 @@ const Services = () => {
 
   return (
     <motion.div 
+      id="services"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="min-h-screen w-full text-white py-20 px-4 relative overflow-hidden"

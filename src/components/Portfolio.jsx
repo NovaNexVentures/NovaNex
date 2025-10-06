@@ -243,7 +243,7 @@ const Portfolio = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <button
+                    <motion.button
                       onClick={prevProject}
                       className="p-3 rounded-full bg-gray-700/50 hover:bg-nexus-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-nexus-500/20"
                       aria-label="Previous project"
@@ -251,13 +251,13 @@ const Portfolio = () => {
                       whileTap={{ scale: 0.95 }}
                     >
                       <ChevronLeft className="w-6 h-6" />
-                    </button>
+                    </motion.button>
                     
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-nexus-600 to-cyan-600 text-white font-bold shadow-lg">
                       <span className="text-sm">{currentIndex + 1}<span className="text-nexus-300">/{projects.length}</span></span>
                     </div>
                     
-                    <button
+                    <motion.button
                       onClick={nextProject}
                       className="p-3 rounded-full bg-gray-700/50 hover:bg-nexus-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-nexus-500/20"
                       aria-label="Next project"
@@ -265,7 +265,7 @@ const Portfolio = () => {
                       whileTap={{ scale: 0.95 }}
                     >
                       <ChevronRight className="w-6 h-6" />
-                    </button>
+                    </motion.button>
                   </motion.div>
                 </div>
               </div>

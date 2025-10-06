@@ -106,8 +106,8 @@ const Footer = () => {
               </motion.li>
               <motion.li variants={item} className="flex items-center">
                 <span className="mr-2">📞</span>
-                <a href="tel:+11234567890" className="hover:text-nexus-400 transition-colors duration-300">
-                  +92 123 4567890
+                <a href="tel:+923265025286" className="hover:text-nexus-400 transition-colors duration-300">
+                +92 326 5025286
                 </a>
               </motion.li>
             </ul>

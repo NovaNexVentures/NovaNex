@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo.png';
+import logoText from '../assets/logo -text.png';
 
 const Navbar = forwardRef(({ scrollToSection, refs = {} }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,16 +57,17 @@ const Navbar = forwardRef(({ scrollToSection, refs = {} }, ref) => {
   return (
     <nav 
       ref={ref}
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md py-2 border-b border-nexus-400/30' : 'bg-gradient-to-b from-black/90 to-transparent py-3'}`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black backdrop-blur-md py-2 border-b border-nexus-400/30' : 'bg-black py-3'}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center focus:outline-none"
+            className="flex items-center space-x-2 focus:outline-none"
           >
-            <img src={logo} alt="NovaNex Logo" className="h-16 w-auto" />
+            <img src={logo} alt="NovaNex Logo" className="h-12 w-auto" />
+            <img src={logoText} alt="NovaNex" className="h-8 w-auto" />
           </button>
 
           {/* Desktop Navigation */}

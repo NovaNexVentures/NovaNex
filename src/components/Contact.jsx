@@ -28,12 +28,46 @@ const staggerContainer = {
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
-    e.target.reset();
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value
+    };
+
+    // Google Apps Script endpoint
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxjAdDxum50tCq9vg1Y-qW_HcNOJBTDuGsSW4prSxu7GsYX8sJmkI2FgaCYT9unvW4PhQ/exec";
+
+    try {
+      console.log("Submitting form data:", formData);
+
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors", 
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      console.log("Fetch response object:", response);
+      if (response.ok) {
+        console.log("Form successfully submitted (response.ok = true)");
+        alert("Thank you! Your message has been sent successfully.");
+        e.target.reset();
+      } else {
+        console.warn("Form submission may have succeeded, but response not accessible (no-cors mode).");
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission failed:", error);
+      alert("Failed to send. Check your internet connection or try later.");
+    }
   };
+
+
 
   const socialLinks = [
     {
@@ -59,7 +93,7 @@ const Contact = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="min-h-screen w-full text-white py-20 px-4 relative overflow-hidden"
@@ -73,10 +107,10 @@ const Contact = () => {
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black via-black/80 to-transparent backdrop-blur-sm"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent backdrop-blur-sm"></div>
       </div>
-      
+
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             ref={ref}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -84,18 +118,18 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <div className="space-y-4">
-              <motion.h2 
+              <motion.h2
                 variants={fadeInUp}
                 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-nexus-400 via-nexus-300 to-nexus-500 bg-clip-text text-transparent leading-tight"
               >
                 Let's Connect
               </motion.h2>
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 className="h-1.5 bg-gradient-to-r from-nexus-500/50 to-nexus-500 w-24 rounded-full mx-auto"
               />
             </div>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-8"
             >
@@ -103,13 +137,13 @@ const Contact = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={staggerContainer}
           >
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="bg-gradient-to-br from-gray-900 to-gray-800/50 p-8 rounded-2xl border border-gray-800/50 shadow-2xl"
             >
@@ -170,17 +204,17 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="space-y-8"
             >
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-800/50 h-full"
                 variants={fadeInUp}
               >
                 <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
-                
-                <motion.div 
+
+                <motion.div
                   className="space-y-6"
                   variants={fadeInUp}
                 >
@@ -190,30 +224,30 @@ const Contact = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-gray-300 text-sm font-medium">Email us</h4>
-                      <a 
-                        href="mailto:contact@novanext.com" 
+                      <a
+                        href="mailto:contact@novanext.com"
                         className="text-white hover:text-nexus-400 transition-colors"
                       >
-                        contact@novanext.com
+                        contact@novanext.com.pk
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-nexus-500/20 p-3 rounded-lg">
                       <Phone className="w-6 h-6 text-nexus-400" />
                     </div>
                     <div className="ml-4">
                       <h4 className="text-gray-300 text-sm font-medium">Call us</h4>
-                      <a 
-                        href="tel:+1234567890" 
+                      <a
+                        href="tel:+923265025286"
                         className="text-white hover:text-nexus-400 transition-colors"
                       >
-                        +1 (234) 567-890
+                        +92 326 5025286
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="pt-4">
                     <h4 className="text-gray-300 text-sm font-medium mb-4">Follow us</h4>
                     <div className="flex space-x-4">
