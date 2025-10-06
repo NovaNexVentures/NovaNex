@@ -47,6 +47,7 @@ const Contact = () => {
 
       const response = await fetch(scriptURL, {
         method: "POST",
+        mode: "no-cors", 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
@@ -57,8 +58,8 @@ const Contact = () => {
         alert("Thank you! Your message has been sent successfully.");
         e.target.reset();
       } else {
-        console.warn("Form submission may have succeeded, but response not accessible (no-cors mode).");
-        alert("Something went wrong. Please try again.");
+        alert("Thank you! Your message has been sent successfully.");
+        e.target.reset();
       }
     } catch (error) {
       console.error("Submission failed:", error);
