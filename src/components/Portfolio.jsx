@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight } from 'lucide-re
 // Import images
 import classroomSystemImage from '../assets/portfolio/classroomsystem.png';
 import pofLibraryImage from '../assets/portfolio/lib-virtualtour.png';
+import launchpaidlogo from '../assets/portfolio/launchpaidlogo.jpg';
+import GDP from '../assets/portfolio/gdp.jpg';
 
 // Custom hook for 3D tilt effect
 const useTilt = (active) => {
@@ -44,6 +46,20 @@ const projects = [
     image: pofLibraryImage,
     url: 'https://app.lapentor.com/sphere/pof-library',
     tags: ['Virtual Reality', 'WebGL', 'Interactive']
+  },
+  {
+    title: 'LaunchPaid.ai',
+    description: 'Launchpaid AI builds smart SaaS solutions for influencer marketing and automation connecting brands creators and agencies seamlessly',
+    image: launchpaidlogo,
+    url: 'https://launchpaid.ai',
+    tags: ['SAAS', 'CRM', 'Web App']
+  },
+  {
+    title: 'Global GDP Analysis Dashboard',
+    description: 'interactive Streamlit dashboard that visualizes and analyzes key economic metrics, including GDP, GDP Growth Rate, GDP per Capita (PPP), and Unemployment Rates, across various countries from 1990 to 2023.',
+    image: GDP,
+    url: 'https://gdp-dynamics-a-comparative-analysis.streamlit.app/',
+    tags: ['Data Dashboard', 'Visualization', 'Data Analysis']
   },
   {
     title: 'Classroom Scheduling System',
