@@ -55,6 +55,13 @@ const projects = [
     tags: ['SAAS', 'CRM', 'Web App']
   },
   {
+    title: 'Modern Ecommerce Site with Full management System',
+    description: 'ToyVerse is a modern e-commerce web application featuring a stunning Glassmorphism UI and a robust Python FastAPI backend.',
+    image: Toyverselogo,
+    url: 'https://github.com/Armaghan195/ToyVerse',
+    tags: ['E-commerce', 'CRM', 'Web App']
+  },
+  {
     title: 'Global GDP Analysis Dashboard',
     description: 'interactive Streamlit dashboard that visualizes and analyzes key economic metrics, including GDP, GDP Growth Rate, GDP per Capita (PPP), and Unemployment Rates, across various countries from 1990 to 2023.',
     image: GDP,
