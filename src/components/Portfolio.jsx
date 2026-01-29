@@ -56,7 +56,7 @@ const projects = [
   {
     title: 'Modern Ecommerce Site with Full management System',
     description: 'ToyVerse is a modern e-commerce web application featuring a stunning Glassmorphism UI and a robust Python FastAPI backend.',
-    image: Toyverselogo,
+    
     url: 'https://github.com/Armaghan195/ToyVerse',
     tags: ['E-commerce', 'CRM', 'Web App']
   },
