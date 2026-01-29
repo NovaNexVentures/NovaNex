@@ -50,7 +50,6 @@ const projects = [
   {
     title: 'LaunchPaid.ai',
     description: 'Launchpaid AI builds smart SaaS solutions for influencer marketing and automation connecting brands creators and agencies seamlessly',
-    image: launchpaidlogo,
     url: 'https://launchpaid.ai',
     tags: ['SAAS', 'CRM', 'Web App']
   },
