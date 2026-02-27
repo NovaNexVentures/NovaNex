@@ -7,7 +7,7 @@ import MovingS from '../components/MovingS.jsx'
 import Globe from '../components/Globe.jsx';
 import '../styles/Home.css'
 
-export default function Home({ onSwapClick }) {
+export default function Home() {
   const aboutRef = useRef(null)
   const [aboutInView, setAboutInView] = useState(false)
 
@@ -276,7 +276,7 @@ export default function Home({ onSwapClick }) {
               <Btn1 text="OUR PORTFOLIO" />
             </div>
             <div className="cta-btn btn2-wrap">
-              <div onClick={onSwapClick}>
+              <div>
                 <Btn2 text="LET'S CONNECT" />
               </div>
             </div>
