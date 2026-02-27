@@ -1,5 +1,5 @@
 // App.jsx
-import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav'
 import Home from './pages/Home'
 
@@ -9,7 +9,7 @@ export default function App() {
     <>
       <Nav/>
       <Home/>
-
+      <Analytics />
     </>
   )
 }
