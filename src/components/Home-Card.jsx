@@ -5,15 +5,15 @@ import '../styles/Home-Card.css'
  * HomeCard
  * Props:
  * - icon: URL for the small corner icon (optional)
- * - title: main title (e.g. PRIVACY SWAP)
+ * - title: main title (e.g. SERVICE NAME)
  * - subtitle: short subtitle line
  * - description: longer descriptive text (can include line breaks)
  */
 export default function HomeCard({
   icon = null,
-  title = 'PRIVACY SWAP',
-  subtitle = 'SWAP ANY SOLANA TOKEN PRIVATELY THROUGH',
-  description = 'CONTINUOUS POOLS THAT ERASE YOUR TRACE.'
+  title = 'SERVICE NAME',
+  subtitle = 'PROVIDE A SHORT SUBTITLE HERE',
+  description = 'ADD YOUR DESCRIPTION HERE.'
 }) {
   return (
     <article className="HC-card">

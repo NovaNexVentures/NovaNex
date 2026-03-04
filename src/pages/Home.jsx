@@ -51,7 +51,7 @@ export default function Home() {
   }, [])
   const products = [
     {
-      id: 'swap',
+      id: 'ai-automation',
       icon: '⟲',
       title: 'AI-Powered Automation',
       bannerTitle: 'AI-Powered Automation',
@@ -99,27 +99,27 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState(0);
 
   const faqs = [
-  {
-    q: 'HOW DOES NOVANEX ENSURE EXCELLENCE?',
-    a: 'We use a collaborative process to deliver high-performance solutions that exceed your specific business expectations.',
-  },
-  {
-    q: 'WHAT SERVICES DO YOU PROVIDE?',
-    a: 'Our expertise includes custom software development, AI automation, web solutions, and advanced API integrations.',
-  },
-  {
-    q: 'WHO ARE YOUR IDEAL CLIENTS?',
-    a: 'We empower visionary businesses worldwide with cutting-edge technology to drive innovation and sustainable growth.',
-  },
-  {
-    q: 'WHAT SETS YOUR AGENCY APART?',
-    a: 'We redefine digital innovation by combining intuitive design with powerful technology that sets industry standards.',
-  },
-  {
-    q: 'HOW DO WE GET STARTED?',
-    a: 'Book a free session today to transform your visionary ideas into powerful digital experiences.',
-  },
-];
+    {
+      q: 'HOW DOES NOVANEX ENSURE EXCELLENCE?',
+      a: 'We use a collaborative process to deliver high-performance solutions that exceed your specific business expectations.',
+    },
+    {
+      q: 'WHAT SERVICES DO YOU PROVIDE?',
+      a: 'Our expertise includes custom software development, AI automation, web solutions, and advanced API integrations.',
+    },
+    {
+      q: 'WHO ARE YOUR IDEAL CLIENTS?',
+      a: 'We empower visionary businesses worldwide with cutting-edge technology to drive innovation and sustainable growth.',
+    },
+    {
+      q: 'WHAT SETS YOUR AGENCY APART?',
+      a: 'We redefine digital innovation by combining intuitive design with powerful technology that sets industry standards.',
+    },
+    {
+      q: 'HOW DO WE GET STARTED?',
+      a: 'Book a free session today to transform your visionary ideas into powerful digital experiences.',
+    },
+  ];
 
   const [openFaq, setOpenFaq] = useState(-1); // start closed by default
 
@@ -185,14 +185,14 @@ export default function Home() {
             icon={card1}
             title={'AI AUTOMATION'}
             subtitle={'AI-driven solutions automate complexity, gaining insights'}
-            description={'and delivering smart results.'} 
+            description={'and delivering smart results.'}
           />
 
-          <HomeCard 
+          <HomeCard
             icon={card1}
             title={'API DEVELOPMENT'}
             subtitle={'Build secure, scalable apis for high-performance data'}
-            description={' exchange and seamless ecosystem integration.'} 
+            description={' exchange and seamless ecosystem integration.'}
           />
         </div>
 
@@ -259,14 +259,14 @@ export default function Home() {
 
           <div className="section-caption">COLLABORATIVE PROCESS PUTS VISION AT CENTER TO EXCEED EXPECTATIONS.</div>
         </div>
-      </section> 
+      </section>
 
       <section className='home-container-4'>
         <div className="home-section-4">
           <div className="grid-bg" aria-hidden="true"></div>
 
           <div className={`CTA-heading ${ctaInView ? 'in-view' : ''}`} ref={ctaRef}>
-            <h1 className="CTA-line"><span className="CTA-word cta-w-1">EMPOWERING</span> <span className="CTA-word cta-w-2">BUSINESSES</span> <span className="CTA-word cta-w-3">WITH</span><span className="CTA-word cta-w-4">CUTTING-EDGE</span> <span className="CTA-word cta-w-5">TECHNOLOGY</span></h1>  
+            <h1 className="CTA-line"><span className="CTA-word cta-w-1">EMPOWERING</span> <span className="CTA-word cta-w-2">BUSINESSES</span> <span className="CTA-word cta-w-3">WITH</span><span className="CTA-word cta-w-4">CUTTING-EDGE</span> <span className="CTA-word cta-w-5">TECHNOLOGY</span></h1>
             <h1 className="CTA-line"> <span className="CTA-word cta-w-6">AND</span> <span className="CTA-word cta-w-7">INNOVATIVE</span> <span className="CTA-word cta-w-8">DIGITAL</span></h1>
             <h1 className="CTA-line"><span className="CTA-word cta-w-9">EXPERIENCES</span> <span className="CTA-word cta-w-10"></span> <span className="CTA-word cta-w-11"></span> <span className="CTA-word cta-w-12"></span></h1>
           </div>
