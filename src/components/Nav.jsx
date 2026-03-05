@@ -4,13 +4,28 @@ import Btn1 from './Btn1.jsx'
 import logo from '../assets/logo_c.png'
 import '../styles/Nav.css'
 
-export default function Nav(){
+export default function Nav() {
 	const [mobileOpen, setMobileOpen] = useState(false)
+
+	const handleNavClick = (id) => {
+		setMobileOpen(false);
+		if (window.location.pathname === '/') {
+			const el = document.getElementById(id);
+			if (el) {
+				el.scrollIntoView({ behavior: 'smooth' });
+				window.history.pushState(null, '', `/#${id}`);
+			} else {
+				window.location.href = `/#${id}`;
+			}
+		} else {
+			window.location.href = `/#${id}`;
+		}
+	};
 
 	return (
 		<nav className={`nav-wrap ${mobileOpen ? 'open' : ''}`}>
 			<div className="nav-inner">
-				<div className="nav-left">
+				<div className="nav-left" style={{ cursor: 'pointer' }} onClick={() => window.location.href = '/'}>
 					{/* <span className="nav-logo-square" aria-hidden="true"/> */}
 					<span className="nav-brand"><img className='nav-brand-img' src={logo} alt="logo" /></span>
 				</div>
@@ -29,13 +44,13 @@ export default function Nav(){
 					</button>
 
 					<ul className="nav-links">
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-2'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="ABOUT" /></li>
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-4'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="PORTFOLIO" /></li> 
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-5'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="SERVICES" /></li>
-					</ul> 
- 
+						<li onClick={() => handleNavClick('about')}><Btn1 text="ABOUT" /></li>
+						<li onClick={() => handleNavClick('projects')}><Btn1 text="PROJECTS" /></li>
+						<li onClick={() => handleNavClick('services')}><Btn1 text="SERVICES" /></li>
+					</ul>
+
 					<div className="nav-cta">
-						<div>
+						<div onClick={() => handleNavClick('get-in-touch')}>
 							<Btn2 text="BOOK A FREE SESSION" />
 						</div>
 					</div>
@@ -51,12 +66,12 @@ export default function Nav(){
 					<button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>×</button>
 
 					<ul className="mobile-links">
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-2'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="ABOUT" /></li>
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-4'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="PORTFOLIO" /></li>
-						<li onClick={() => { setMobileOpen(false); const el = document.querySelector('.home-container-5'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}><Btn1 text="SERVICES" /></li> 
+						<li onClick={() => handleNavClick('about')}><Btn1 text="ABOUT" /></li>
+						<li onClick={() => handleNavClick('projects')}><Btn1 text="PROJECTS" /></li>
+						<li onClick={() => handleNavClick('services')}><Btn1 text="SERVICES" /></li>
 					</ul>
 
-					<div className="mobile-cta" >
+					<div className="mobile-cta" onClick={() => handleNavClick('get-in-touch')}>
 						<Btn2 text="BOOK A FREE SESSION" />
 					</div>
 				</div>

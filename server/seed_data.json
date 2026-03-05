@@ -1,0 +1,149 @@
+[
+  {
+    "_id": "kotzr5gb",
+    "title": "Collexa",
+    "subtitle": "Social Platform / Mobile & Cross-Platform App",
+    "description": "Bahria University's social campus app — Flutter & Firebase\n\nCollexa is a full-featured campus social platform built for Bahria University students. It unifies social feeds, group communities, real-time messaging, events, confessions, and lost & found into a single cross-platform Flutter application backed entirely by Firebase.\n\nCollexa covers the full spectrum of campus social life — from anonymous confessions and group communities to real-time chats and lost & found boards. Every feature is built on Firebase's real-time infrastructure for instant, offline-resilient delivery.",
+    "tags": [
+      "Flutter",
+      "Dart",
+      "flutter",
+      "firebase",
+      "Riverpod",
+      "go_router",
+      "Firestore",
+      "Firebase Auth",
+      "Cloud Functions"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.274Z"
+  },
+  {
+    "_id": "a5r28fry",
+    "title": "FYP Automation System",
+    "subtitle": "Enterprise Academic Automation · Bahria University, Islamabad",
+    "description": "A policy-enforced, end-to-end platform that replaces two semesters worth of paper forms, physical logbooks, email chains, and manual panel scheduling — with a single unified system.\n\nBahria University's FYP lifecycle — Proposal through Final Defense — spanned eight months and seven stakeholder types. Every handoff was manual. Every deadline communicated by email. Every logbook a physical notebook that could be lost, backdated, or simply never filled.\n\nStudents maintained handwritten Annex-A logbooks. Entries were routinely backdated at end-of-semester. Supervisors had no central visibility. The mandatory 24-entry rule existed only on paper.",
+    "tags": [
+      "React",
+      "REST API",
+      "SQL Server",
+      "SMTP",
+      "RBAC",
+      "JWT"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.290Z"
+  },
+  {
+    "_id": "rmizcpw7",
+    "title": "InspectPro",
+    "subtitle": "A full-stack inspection management platform that digitizes field inspection workflows — from checklist creation to offline data capture, sync, and bra",
+    "description": "Web App + Progressive Web App (PWA)\n\n3 Members · Novanex\n\nNovember 2025",
+    "tags": [
+      "React",
+      "ASP.NET Core 8",
+      "EF Core",
+      "SQLite",
+      "PWA",
+      "SignalR",
+      "Hangfire"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.296Z"
+  },
+  {
+    "_id": "mhuwlwon",
+    "title": "PhishSim",
+    "subtitle": "A hybrid browser extension that combines machine learning classification with rule-based heuristics to identify phishing URLs in real time — before th",
+    "description": "Traditional blacklists and browser warnings operate on known threats, leaving users exposed to novel, freshly-registered phishing domains.\n\nEnterprise-grade threat detection tools are too resource-intensive for browser-level integration, creating a gap in everyday protection.\n\nEven when threats are flagged, users receive no insight into why a site was marked suspicious — reducing trust and actionability.",
+    "tags": [
+      "Web Development",
+      "UI/UX"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.312Z"
+  },
+  {
+    "_id": "jmnb37n2",
+    "title": "ResumeAI",
+    "subtitle": "A full-stack intelligent recruitment platform that parses uploaded resumes using NLP, extracts structured candidate data, and matches applicants again",
+    "description": "Every job posting attracts hundreds of resumes. Human recruiters, faced with inconsistent formats and volume pressure, make hasty, biased decisions — missing strong candidates and wasting days on manual extraction.\n\nResumeAI parses uploaded resumes in any format, extracts structured candidate profiles using spaCy NLP, stores everything in a relational database, and ranks applicants against job descriptions using cosine similarity — all behind a clean, secure dashboard.\n\nA full-stack recruitment intelligence platform — tested end-to-end across Chrome and Firefox, all 11 API endpoints secured and validated, no critical bugs in final sprint.",
+    "tags": [
+      "Web Development",
+      "UI/UX"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.322Z"
+  },
+  {
+    "_id": "ahb2e81r",
+    "title": "Scounts",
+    "subtitle": "FinTech / Digital Tax Consultancy Platform · Pakistan",
+    "description": "Pakistan's private digital tax partner — income tax, NTN registration & salary calculations, simplified.\n\nScounts is a private tax consultancy mobile application serving Pakistani taxpayers. It guides users through income tax return filing, NTN registration, and salary tax calculation via a step-by-step interface — backed by verified Federal Board of Revenue (FBR) data and a team of tax professionals.\n\nScounts distils the complexity of Pakistan's tax system into a guided, jargon-free mobile experience. From first-time filers registering an NTN to salaried professionals calculating their annual liability — every service is accessible without a visit to an FBR office or a tax lawyer's office.",
+    "tags": [
+      "Flutter",
+      "Firebase",
+      "FBR API",
+      "E2E Encryption",
+      "PDF Export"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.328Z"
+  },
+  {
+    "_id": "8k4xlzsw",
+    "title": "ToyVerse",
+    "subtitle": "A full-stack online toy store management system — built to digitize retail operations, enable AI-assisted customer support, and deliver a seamless sho",
+    "description": "\"Small toy stores were losing ground to digital competitors — not because of price, but because they had no digital presence at all.\"\n\nFull-Stack Web App\n\n4 Members · Novanex",
+    "tags": [
+      "Python",
+      "FastAPI",
+      "SQL Server",
+      "HTML/CSS/JS",
+      "Groq AI"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.332Z"
+  },
+  {
+    "_id": "3ki8j12p",
+    "title": "VitalWatch",
+    "subtitle": "Health & Wellness / Real-Time Monitoring App",
+    "description": "Real-time health monitoring via Apple HealthKit & Google Fit APIs\n\nVitalWatch is a cross-platform Flutter health companion that streams live biometric data from Apple HealthKit and Google Fit, tracks daily wellness metrics, dispatches emergency alerts to saved contacts, and generates exportable weekly health reports — all from a single unified profile.\n\nVitalWatch unifies real-time biometric monitoring with actionable daily wellness tracking. API-sourced sensor data from Apple and Google ensures clinical-grade accuracy — far beyond what manual input or on-device sensors alone can provide.",
+    "tags": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "HealthKit",
+      "Google Fit",
+      "Riverpod",
+      "PDF Export"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.341Z"
+  },
+  {
+    "_id": "uwmm5q4r",
+    "title": "ZenoShell",
+    "subtitle": "An AI-augmented Linux terminal that understands natural language, speaks back to you, and executes commands — all offline.",
+    "description": "Linux terminals are powerful — but ruthlessly inaccessible. Developers waste hours memorizing arcane syntax, debugging opaque error messages, and switching between shell, browser, and documentation just to run routine tasks. There was no intelligence layer, no voice, no help.\n\nZenoShell is a two-module AI system — a text-based Z-Terminal and a Voice Assistant — that runs entirely offline using local models. It interprets natural language, explains errors in plain English, and responds out loud. No API keys. No cloud.",
+    "tags": [
+      "Z-Terminal",
+      "Voice Module",
+      "Python 3.10",
+      "Whisper (OpenAI)",
+      "Coqui TTS",
+      "Ollama + Mistral",
+      "prompt_toolkit",
+      "Rich",
+      "sounddevice",
+      "noisereduce",
+      "subprocess",
+      "PyTorch + CUDA",
+      "Fedora Linux",
+      "venv"
+    ],
+    "images": [],
+    "createdAt": "2026-03-04T19:27:51.346Z"
+  }
+]

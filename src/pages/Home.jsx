@@ -6,6 +6,7 @@ import card1 from '../assets/card1.svg'
 import MovingS from '../components/MovingS.jsx'
 import Globe from '../components/Globe.jsx';
 import '../styles/Home.css'
+import API_URL from '../config';
 
 export default function Home() {
   const aboutRef = useRef(null)
@@ -13,6 +14,7 @@ export default function Home() {
 
   const ctaRef = useRef(null)
   const [ctaInView, setCtaInView] = useState(false)
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
 
   useEffect(() => {
     if (!aboutRef.current) return
@@ -154,14 +156,14 @@ export default function Home() {
               </p>
 
               <div className="hero-ctas">
-                <div role="button" tabIndex={0}>
+                <div role="button" tabIndex={0} onClick={() => { document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' }); }}>
                   <Btn1 text="BOOK A FREE SESSION" />
                 </div>
                 <div
                   role="button"
                   tabIndex={0}
-                  onClick={() => { const el = document.querySelector('.home-container-5'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const el = document.querySelector('.home-container-2'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}
+                  onClick={() => { window.location.href = '/#services'; }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.location.href = '/#services'; } }}
                 >
                   <Btn2 text="OUR SERVICES" />
                 </div>
@@ -197,7 +199,7 @@ export default function Home() {
         </div>
 
       </section>
-      <section className='home-container-2'>
+      <section className='home-container-2' id="about">
         <div className="About-App">
           <div className="About-left">
             <p className="About-sub">
@@ -261,7 +263,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='home-container-4'>
+      <section className='home-container-4' id="projects">
         <div className="home-section-4">
           <div className="grid-bg" aria-hidden="true"></div>
 
@@ -272,8 +274,8 @@ export default function Home() {
           </div>
 
           <div className="CTA">
-            <div className="cta-btn btn1-wrap">
-              <Btn1 text="OUR PORTFOLIO" />
+            <div className="cta-btn btn1-wrap" onClick={() => window.location.href = '/projects'}>
+              <Btn1 text="OUR PROJECTS" />
             </div>
             <div className="cta-btn btn2-wrap">
               <div>
@@ -284,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='home-container-5'>
+      <section className='home-container-5' id="services">
         <h3 className="products-heading">SOFTWARE SOLUTIONS FOR EVERY<br />USE CASE</h3>
         <div className="products-section">
           <div className="products-left">
@@ -317,7 +319,83 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='home-container-6'>
+      <section className='home-container-6' id="get-in-touch">
+        <div className="lead-form-section" style={{ padding: '4rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'transparent' }}>
+          <p className="faq-pretitle" style={{ width: '100%', maxWidth: '800px', textAlign: 'left' }}>/ Get in touch</p>
+          <h2 className="faq-heading" style={{ width: '100%', maxWidth: '800px', textAlign: 'left', marginBottom: '2rem' }}>START YOUR NEXT BIG<br />PROJECT WITH US</h2>
+
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target;
+              const data = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                message: form.message.value
+              };
+              try {
+                const res = await fetch(`${API_URL}/leads`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                  setShowSuccessPopup(true);
+                  form.reset();
+                } else {
+                  alert('Something went wrong. Please try again later.');
+                }
+              } catch (err) {
+                alert('Network error. Please make sure the server is running.');
+              }
+            }}
+            style={{
+              width: '100%',
+              maxWidth: '800px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              background: 'rgba(0,0,0,0.5)',
+              padding: '2rem',
+              border: '1px solid var(--yellow)',
+              borderRadius: '8px'
+            }}
+          >
+            <div className="contact-form-row">
+              <input
+                type="text" name="name" placeholder="Your Name" required
+                style={{ padding: '1rem', background: 'transparent', border: '1px solid rgba(255, 217, 0, 0.4)', color: 'white', borderRadius: '4px', outline: 'none', fontFamily: 'var(--font-family)', fontSize: '1rem' }}
+                onFocus={(e) => e.target.style.borderColor = 'var(--yellow)'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255, 217, 0, 0.4)'}
+              />
+              <input
+                type="email" name="email" placeholder="Your Email" required
+                style={{ padding: '1rem', background: 'transparent', border: '1px solid rgba(255, 217, 0, 0.4)', color: 'white', borderRadius: '4px', outline: 'none', fontFamily: 'var(--font-family)', fontSize: '1rem' }}
+                onFocus={(e) => e.target.style.borderColor = 'var(--yellow)'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255, 217, 0, 0.4)'}
+              />
+            </div>
+            <input
+              type="tel" name="phone" placeholder="Your Phone Number"
+              style={{ padding: '1rem', background: 'transparent', border: '1px solid rgba(255, 217, 0, 0.4)', color: 'white', borderRadius: '4px', outline: 'none', fontFamily: 'var(--font-family)', fontSize: '1rem' }}
+              onFocus={(e) => e.target.style.borderColor = 'var(--yellow)'}
+              onBlur={(e) => e.target.style.borderColor = 'rgba(255, 217, 0, 0.4)'}
+            />
+            <textarea
+              name="message" placeholder="Tell us about your project" required rows="4"
+              style={{ padding: '1rem', background: 'transparent', border: '1px solid rgba(255, 217, 0, 0.4)', color: 'white', borderRadius: '4px', outline: 'none', fontFamily: 'var(--font-family)', fontSize: '1rem', resize: 'vertical' }}
+              onFocus={(e) => e.target.style.borderColor = 'var(--yellow)'}
+              onBlur={(e) => e.target.style.borderColor = 'rgba(255, 217, 0, 0.4)'}
+            ></textarea>
+            <button type="submit" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', alignSelf: 'flex-start', marginTop: '0.5rem' }}>
+              <Btn1 text="SUBMIT INQUIRY" />
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section className='home-container-7'>
         <div className="faq-section">
           <p className="faq-pretitle">/ Frequently Asked Questions</p>
           <h2 className="faq-heading">YOUR MOST COMMON<br />QUESTIONS ABOUT APP ANSWERED</h2>
@@ -348,6 +426,59 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {showSuccessPopup && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000,
+          backdropFilter: 'blur(5px)'
+        }}>
+          <div style={{
+            background: 'rgba(10, 10, 10, 0.95)',
+            border: '1px solid var(--yellow)',
+            padding: '3rem 2rem',
+            borderRadius: '8px',
+            maxWidth: '500px',
+            width: '90%',
+            textAlign: 'center',
+            position: 'relative',
+            boxShadow: '0 0 20px rgba(255, 217, 0, 0.1)'
+          }}>
+            <button
+              onClick={() => setShowSuccessPopup(false)}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'none',
+                border: 'none',
+                color: 'var(--yellow)',
+                fontSize: '1.5rem',
+                cursor: 'pointer'
+              }}
+            >
+              ×
+            </button>
+            <h2 style={{ color: 'var(--yellow)', fontFamily: 'var(--font-family)', marginBottom: '1rem', fontSize: '2rem' }}>THANK YOU</h2>
+            <p style={{ color: '#ccc', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.5' }}>
+              Your inquiry has been successfully submitted. We will get back to you shortly.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+              <div onClick={() => window.open('https://wa.me/1234567890', '_blank')} style={{ width: '100%', maxWidth: '280px' }}>
+                <Btn1 text="CALL US NOW" />
+              </div>
+              <div onClick={() => { setShowSuccessPopup(false); window.location.href = '/#projects'; }} style={{ width: '100%', maxWidth: '280px' }}>
+                <Btn2 text="VIEW PROJECTS" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }

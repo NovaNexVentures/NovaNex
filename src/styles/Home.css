@@ -1919,3 +1919,16 @@ body::after {
 *::-webkit-scrollbar-thumb:active {
 	outline: 2px solid rgba(255, 217, 0, 0.15);
 }
+
+/* Contact form layout responsiveness */
+.contact-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+	.contact-form-row {
+		grid-template-columns: 1fr;
+	}
+}
