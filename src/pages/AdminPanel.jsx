@@ -171,9 +171,9 @@ export default function AdminPanel() {
                     <h3 style={{ color: 'var(--yellow)', fontFamily: 'var(--font-family)', marginBottom: '1.5rem' }}>Current Projects ({projects.length})</h3>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
                         {projects.map(p => (
-                            <div key={p._id} style={{ border: '1px solid rgba(255, 217, 0, 0.4)', padding: '1.5rem', borderRadius: '4px', background: 'rgba(0,0,0,0.6)', display: 'flex', flexDirection: 'column' }}>
-                                <h4 style={{ color: 'var(--yellow)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-family)', fontSize: '1.2rem' }}>{p.title}</h4>
-                                <p style={{ color: '#ccc', margin: '0 0 1rem 0', fontSize: '0.9rem', flexGrow: 1 }}>{p.subtitle}</p>
+                            <div key={p._id} style={{ border: '1px solid rgba(255, 217, 0, 0.4)', padding: '1.5rem', borderRadius: '4px', background: 'rgba(0,0,0,0.6)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                                <h4 style={{ color: 'var(--yellow)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-family)', fontSize: '1.2rem', wordBreak: 'break-word' }}>{p.title}</h4>
+                                <p style={{ color: '#ccc', margin: '0 0 1rem 0', fontSize: '0.9rem', flexGrow: 1, wordBreak: 'break-word', whiteSpace: 'pre-wrap' }}>{p.subtitle}</p>
                                 <div style={{ display: 'flex', gap: '1rem' }}>
                                     <button onClick={() => handleEdit(p)} style={{ background: 'none', border: '1px solid var(--yellow)', color: 'var(--yellow)', padding: '0.5rem 1rem', cursor: 'pointer', borderRadius: '4px' }}>Edit</button>
                                     <button onClick={() => handleDelete(p._id)} style={{ background: 'none', border: '1px solid #ff4444', color: '#ff4444', padding: '0.5rem 1rem', cursor: 'pointer', borderRadius: '4px' }}>Delete</button>
@@ -187,16 +187,16 @@ export default function AdminPanel() {
                     <h3 style={{ color: 'var(--yellow)', fontFamily: 'var(--font-family)', marginBottom: '1.5rem' }}>Lead Submissions ({leads.length})</h3>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
                         {leads.map(lead => (
-                            <div key={lead._id} style={{ border: '1px solid rgba(255, 217, 0, 0.4)', padding: '1.5rem', borderRadius: '4px', background: 'rgba(0,0,0,0.6)', display: 'flex', flexDirection: 'column' }}>
+                            <div key={lead._id} style={{ border: '1px solid rgba(255, 217, 0, 0.4)', padding: '1.5rem', borderRadius: '4px', background: 'rgba(0,0,0,0.6)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                                    <h4 style={{ color: 'var(--yellow)', margin: 0, fontFamily: 'var(--font-family)', fontSize: '1.2rem' }}>{lead.name}</h4>
-                                    <span style={{ fontSize: '0.8rem', color: '#888' }}>{new Date(lead.createdAt).toLocaleDateString()}</span>
+                                    <h4 style={{ color: 'var(--yellow)', margin: 0, fontFamily: 'var(--font-family)', fontSize: '1.2rem', wordBreak: 'break-word' }}>{lead.name}</h4>
+                                    <span style={{ fontSize: '0.8rem', color: '#888', minWidth: '70px', textAlign: 'right' }}>{new Date(lead.createdAt).toLocaleDateString()}</span>
                                 </div>
-                                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
-                                    {lead.email && <a href={`mailto:${lead.email}`} style={{ color: '#ccc', textDecoration: 'none' }}>✉ {lead.email}</a>}
-                                    {lead.phone && <a href={`tel:${lead.phone}`} style={{ color: '#ccc', textDecoration: 'none' }}>☏ {lead.phone}</a>}
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
+                                    {lead.email && <a href={`mailto:${lead.email}`} style={{ color: '#ccc', textDecoration: 'none', wordBreak: 'break-all' }}>✉ {lead.email}</a>}
+                                    {lead.phone && <a href={`tel:${lead.phone}`} style={{ color: '#ccc', textDecoration: 'none', wordBreak: 'break-all' }}>☏ {lead.phone}</a>}
                                 </div>
-                                <div style={{ color: '#eee', flexGrow: 1, padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', whiteSpace: 'pre-wrap', fontSize: '0.95rem', marginBottom: '1rem' }}>
+                                <div style={{ color: '#eee', flexGrow: 1, padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', whiteSpace: 'pre-wrap', wordBreak: 'break-word', overflowWrap: 'anywhere', fontSize: '0.95rem', marginBottom: '1rem' }}>
                                     {lead.message}
                                 </div>
                                 <button onClick={() => handleDeleteLead(lead._id)} style={{ background: 'none', border: '1px solid #ff4444', color: '#ff4444', padding: '0.4rem 0.8rem', cursor: 'pointer', borderRadius: '4px', alignSelf: 'flex-start', fontSize: '0.8rem' }}>Delete Lead</button>
