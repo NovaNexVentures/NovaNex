@@ -69,6 +69,14 @@ export default function ProjectDetail() {
                     <p className="HC-sub" style={{ fontSize: 'clamp(18px, 2vw, 24px)', color: '#ccc', marginTop: '1rem', maxWidth: '800px', lineHeight: 1.5 }}>
                         {project.subtitle}
                     </p>
+
+                    {project.projectLink && (
+                        <div style={{ marginTop: '2rem' }}>
+                            <a href={project.projectLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                                <Btn2 text="VISIT LIVE PROJECT ↗" />
+                            </a>
+                        </div>
+                    )}
                 </div>
 
                 {project.images && project.images[0] && (

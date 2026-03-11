@@ -10,7 +10,7 @@ export default function AdminPanel() {
     const [leads, setLeads] = useState([]);
 
     // Form State
-    const [formData, setFormData] = useState({ title: '', subtitle: '', description: '', tags: '', images: '' });
+    const [formData, setFormData] = useState({ title: '', subtitle: '', description: '', tags: '', images: '', projectLink: '' });
     const [isEditing, setIsEditing] = useState(null);
 
     useEffect(() => {
@@ -74,7 +74,7 @@ export default function AdminPanel() {
                 body: JSON.stringify(payload)
             });
             if (res.ok) {
-                setFormData({ title: '', subtitle: '', description: '', tags: '', images: '' });
+                setFormData({ title: '', subtitle: '', description: '', tags: '', images: '', projectLink: '' });
                 setIsEditing(null);
                 fetchProjects();
             } else {
@@ -91,7 +91,8 @@ export default function AdminPanel() {
             subtitle: p.subtitle,
             description: p.description,
             tags: p.tags.join(', '),
-            images: p.images.join(', ')
+            images: p.images.join(', '),
+            projectLink: p.projectLink || ''
         });
         setIsEditing(p._id);
     };
@@ -153,13 +154,14 @@ export default function AdminPanel() {
                         <textarea style={{ ...inputStyle, minHeight: '100px' }} placeholder="Description" value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} required />
                         <input style={inputStyle} type="text" placeholder="Tags (comma separated)" value={formData.tags} onChange={e => setFormData({ ...formData, tags: e.target.value })} />
                         <input style={inputStyle} type="text" placeholder="Image URLs (comma separated)" value={formData.images} onChange={e => setFormData({ ...formData, images: e.target.value })} />
+                        <input style={inputStyle} type="text" placeholder="Project Link / External URL (Optional)" value={formData.projectLink} onChange={e => setFormData({ ...formData, projectLink: e.target.value })} />
 
                         <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
                             <button type="submit" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                                 <Btn1 text={isEditing ? 'UPDATE PROJECT' : 'SAVE PROJECT'} />
                             </button>
                             {isEditing && (
-                                <button type="button" onClick={() => { setIsEditing(null); setFormData({ title: '', subtitle: '', description: '', tags: '', images: '' }); }} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
+                                <button type="button" onClick={() => { setIsEditing(null); setFormData({ title: '', subtitle: '', description: '', tags: '', images: '', projectLink: '' }); }} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                                     <Btn2 text="CANCEL" />
                                 </button>
                             )}

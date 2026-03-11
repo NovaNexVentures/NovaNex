@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema({
     description: { type: String, required: true },
     tags: [{ type: String }],
     images: [{ type: String }], // URLs to images
+    projectLink: { type: String }, // Optional link to live site
     createdAt: { type: Date, default: Date.now }
 });
 
