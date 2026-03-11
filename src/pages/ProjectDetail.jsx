@@ -117,7 +117,26 @@ export default function ProjectDetail() {
                         position: 'relative',
                         zIndex: 2
                     }}>
-                        {project.description}
+                        {project.description.split(/(#.*?#)/g).map((part, index) => {
+                            if (part.startsWith('#') && part.endsWith('#') && part.length > 2) {
+                                const headingText = part.slice(1, -1).trim();
+                                return (
+                                    <h3 key={index} style={{
+                                        fontFamily: '"JetBrains Mono", monospace',
+                                        fontSize: '12px',
+                                        color: 'var(--yellow)',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.2em',
+                                        marginTop: '2.5rem',
+                                        marginBottom: '1rem',
+                                        display: 'block'
+                                    }}>
+                                        / {headingText}
+                                    </h3>
+                                );
+                            }
+                            return <span key={index}>{part}</span>;
+                        })}
                     </div>
                 </div>
             </div>
