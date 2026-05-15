@@ -5,17 +5,55 @@ import '../styles/Home.css';
 import '../styles/Home-Card.css';
 import API_URL from '../config';
 
+// Skeleton card shown while backend is waking up
+function SkeletonCard() {
+    return (
+        <div className="HC-card" style={{
+            display: 'flex', flexDirection: 'column',
+            paddingBottom: '30px', width: '100%', minHeight: '380px',
+            animation: 'pulse 1.5s ease-in-out infinite'
+        }}>
+            <style>{`
+                @keyframes pulse {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0.4; }
+                }
+                .skel-bar { background: rgba(255,217,0,0.12); border-radius: 4px; }
+            `}</style>
+            <div className="HC-grid" aria-hidden="true" />
+            <div style={{ padding: '24px 24px 0' }}>
+                <div className="skel-bar" style={{ width: '100%', height: '220px' }} />
+            </div>
+            <div style={{ padding: '20px 28px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div className="skel-bar" style={{ width: '60%', height: '22px' }} />
+                <div className="skel-bar" style={{ width: '85%', height: '14px' }} />
+                <div className="skel-bar" style={{ width: '40%', height: '14px' }} />
+                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                    <div className="skel-bar" style={{ width: '60px', height: '24px' }} />
+                    <div className="skel-bar" style={{ width: '70px', height: '24px' }} />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function Projects() {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
+        setLoading(true);
         fetch(`${API_URL}/projects`)
             .then(res => res.json())
             .then(data => {
                 if (Array.isArray(data)) setProjects(data);
+                setLoading(false);
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
     }, []);
 
     return (
@@ -31,7 +69,11 @@ export default function Projects() {
                     </p>
                 </div>
 
-                {projects.length === 0 ? (
+                {loading ? (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem', width: '100%' }}>
+                        {[1, 2, 3, 4, 5, 6].map(i => <SkeletonCard key={i} />)}
+                    </div>
+                ) : projects.length === 0 ? (
                     <p style={{ textAlign: 'center', color: '#888', fontFamily: 'var(--font-mono, monospace)' }}>No projects available yet.</p>
                 ) : (
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem', width: '100%' }}>
@@ -90,3 +132,4 @@ export default function Projects() {
         </div>
     );
 }
+
